@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -14,6 +15,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+
+import {ValidateService} from './services/validate.service';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 @NgModule({
   declarations: [
@@ -29,10 +33,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgFlashMessagesModule.forRoot()
     // RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
