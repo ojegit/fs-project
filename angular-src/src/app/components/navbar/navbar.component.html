@@ -11,11 +11,21 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li>
+            <li *ngIf="authService.loggedIn()">
+              <a routerLinkActive="active" routerLink="dashboard">Dashboard</a>
+            </li>
+            <li *ngIf="authService.loggedIn()">
+              <a routerLinkActive="active" routerLink="profile">Profile</a>
+            </li>
+
+            <li *ngIf="!authService.loggedIn()">
               <a routerLinkActive="active" routerLink="login">Login</a>
             </li>
-            <li>
+            <li *ngIf="!authService.loggedIn()">
               <a routerLinkActive="active" routerLink="register">Register</a>
+            </li>
+            <li *ngIf="authService.loggedIn()">
+              <a href="#" (click)="onLogoutClick()">Logout</a>
             </li>
             </ul>
       </div>

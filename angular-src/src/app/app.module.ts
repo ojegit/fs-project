@@ -17,7 +17,9 @@ import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 
 import {ValidateService} from './services/validate.service';
+import {AuthService} from './services/auth.service';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { NgFlashMessagesModule } from 'ng-flash-messages';
     NgFlashMessagesModule.forRoot()
     // RouterModule.forRoot(appRoutes)
   ],
-  providers: [ValidateService],
+  providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
